@@ -7,12 +7,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 @RestController
-public class MealController {
+public class MealControllerExe2 {
     private List<Meal> specialChef = Arrays.asList(
             new Meal("chicken tikka", "description chicken", 12.00),
             new Meal("florentine", "description florentine", 15.00),

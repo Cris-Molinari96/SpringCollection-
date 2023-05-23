@@ -1,9 +1,6 @@
 package com.example.springboot;
 
-import java.util.Arrays;
-
-import com.example.springboot.controllers.MealController;
-import com.example.springboot.entities.Meal;
+import com.example.springboot.controllers.MealControllerExe2;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -15,8 +12,5 @@ public class Application {
 		ApplicationContext ctx = SpringApplication.run(Application.class, args);
 
 		System.out.println("Hello spring");
-
-		MealController mealController = new MealController();
-		mealController.getPriceOfMeal(5.99, 10.99);
 	}
 }
