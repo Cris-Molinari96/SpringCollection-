@@ -42,10 +42,10 @@ public class MealControllerExe2 {
      * Exercise 2: Create a GetMapping that returns a meal by name
      */
     @GetMapping(value = "/meal/{mealName}")
-    public ResponseEntity<?> getMealOfTheDayTry(@PathVariable("mealName") String mealName) {
+    public Meal getMealOfTheDayTry(@PathVariable("mealName") String mealName) {
         for (Meal meal : specialChef) {
             if (meal.getName().toLowerCase().equals(mealName)) {
-                return ResponseEntity.ok(meal.getName() + " " + meal.getDescription());
+                return meal;
             }
         }
         return null;
@@ -54,10 +54,10 @@ public class MealControllerExe2 {
      * Exercise 3: Create a GetMapping that returns a meal by any word of description
      */
     @GetMapping(value = "meal/description-meal/{phrase}")
-    public ResponseEntity<String> getDescriptionMeal(@PathVariable("phrase")String phrase){
+    public Meal getDescriptionMeal(@PathVariable("phrase")String phrase){
         for(Meal meal : specialChef){
             if(meal.getDescription().contains(phrase)){
-                return ResponseEntity.ok(meal.getDescription());
+                return meal;
             }
         }
         return null;
@@ -66,7 +66,7 @@ public class MealControllerExe2 {
      * Exercise 4: Create a GetMapping that returns a meal by price range
      */
     @GetMapping(value = "/meal/price")
-    public ResponseEntity<?> getPricesMeal(@RequestParam("min") double min,
+    public List<Meal> getPricesMeal(@RequestParam("min") double min,
                                                @RequestParam("max") double max){
         List<Meal> mealRangePrice = specialChef.stream().filter(
                 meal -> min < meal.getPrice() && max > meal.getPrice()).toList();
@@ -76,7 +76,7 @@ public class MealControllerExe2 {
 //                mealRangePrice.add(meal);
 //            }
 //        }
-                return ResponseEntity.ok(mealRangePrice);
+                return mealRangePrice;
     }
 
     // fine esercizi, da qui in poi sono esempi utili per me :)
